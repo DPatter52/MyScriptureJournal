@@ -1,0 +1,85 @@
+﻿@page "{id:int?}"
+@model MyScriptureJournal.Pages.Scriptures.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h1 class="display-5 page-title">Delete</h1>
+
+<h3>Are you sure you want to delete this?</h3>
+<div class="card">
+    <div class="card-header">
+        <h4>Scripture Details</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.StandardWork)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.StandardWork)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Book)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Book)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Chapter)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Chapter)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Verse)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Verse)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.VerseText)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.VerseText)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Notes)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Notes)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.SaveDate)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.SaveDate)
+                </dd>
+            </div>
+        </dl>
+    </div>
+    <div class="card-footer text-muted">
+        <form method="post">
+            <input type="hidden" asp-for="Scripture.Id" />
+            <a class="btn btn-secondary btn-sm" asp-page="./Index">Back to List</a>
+            <input type="submit" value="Delete" class="btn btn-danger" /> 
+            
+        </form>
+
+    </div>
+</div>
+   

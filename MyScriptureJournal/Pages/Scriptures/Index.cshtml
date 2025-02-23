@@ -1,0 +1,112 @@
+﻿@page "{searchString?}"
+@model MyScriptureJournal.Pages.Scriptures.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<h1 class="display-5 page-title">My Journal Entries</h1>
+
+
+
+	<form>
+		<p>
+			<label> <input type="text" asp-for="SearchString" /></label>
+			<input type="submit" value="Search" />
+		</p>
+	</form>
+
+
+
+
+<div class="container">
+
+	<table class="sort-table">
+		<tr>
+			<td>
+				<span class="table-header">Sort Scriptures by -</span>
+			</td>
+			<td>
+
+				<a class="btn btn-primary btn-sm" asp-action="Index" asp-route-sortOrder="@ViewData["DateSortParam"]">
+					<span>Date</span>
+					@if (ViewData["CurrentSort"]?.ToString() == "date_asc")
+					{
+						<span>▲</span>
+					}
+					else if (ViewData["CurrentSort"]?.ToString() == "date_desc")
+					{
+						<span>▼</span>
+					}
+					else
+					{
+						<span></span>
+					}
+				</a>
+			</td>
+			<td>
+				<a class="btn btn-primary btn-sm" asp-action="Index" asp-route-sortOrder="@ViewData["BookSortParam"]">
+					<span>Book</span>
+					@if (ViewData["CurrentSort"]?.ToString() == "book_asc")
+					{
+						<span>▲</span>
+					}
+					else if (ViewData["CurrentSort"]?.ToString() == "book_desc")
+					{
+						<span>▼</span>
+					}
+					else
+					{
+						<span></span>
+					}
+				</a>
+</table>
+
+<hr />
+
+    <p>
+        <a class="btn btn-primary add-scrip-btn btn-lg" asp-page="Create">Add Scripture</a>
+    </p>
+
+
+    <div class="row">
+        @foreach (var item in Model.Scripture)
+        {
+            <div class="col-12 mb-4">
+                <div class="card">
+					<div class="card-body  scrip-card">
+
+                        <p class="card-text text-muted">@item.SaveDate.ToString("MM/dd/yyyy")</p>
+
+                        <h6 class="card-subtitle text-muted">@item.StandardWork</h6>
+
+                        <hr/>
+
+                        <h5 class="card-title">@item.Book @item.Chapter:@item.Verse</h5>
+
+                        <p class="card-text border verse-text">@item.VerseText</p>
+
+                        <hr />
+
+                        <label>Notes:</label>
+                        <div class="border p-2 note-box" >
+                            @item.Notes
+                        </div>
+
+                    </div>
+                    <div class="card-footer text-muted">
+                        <a class = "btn btn-primary btn-sm" asp-page="./Edit" asp-route-id="@item.Id">Edit</a> 
+                        <a class="btn btn-primary btn-sm" asp-page="./Details" asp-route-id="@item.Id">Details</a> 
+                        <a class="btn btn-danger btn-sm" asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
+

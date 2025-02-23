@@ -1,0 +1,80 @@
+﻿@page "{id:int?}"
+@model MyScriptureJournal.Pages.Scriptures.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1 class="display-5 page-title">Scripture Details</h1>
+
+<div class="card">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.StandardWork)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.StandardWork)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Book)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Book)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Chapter)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Chapter)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Verse)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Verse)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.VerseText)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.VerseText)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.Notes)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.Notes)
+                </dd>
+            </div>
+            <div class="col-12 border-bottom py-2">
+                <dt class="col-sm-3 font-weight-bold">
+                    @Html.DisplayNameFor(model => model.Scripture.SaveDate)
+                </dt>
+                <dd class="col-sm-9">
+                    @Html.DisplayFor(model => model.Scripture.SaveDate)
+                </dd>
+            </div>
+        </dl>
+    </div>
+    <div class="card-footer text-muted">
+		<a asp-page="./Index" class="btn btn-secondary btn-sm">Back to List</a>
+        <a asp-page="./Edit" asp-route-id="@Model.Scripture.Id" class="btn btn-primary btn-sm">Edit</a>
+        
+    </div>
+</div>
+
+
