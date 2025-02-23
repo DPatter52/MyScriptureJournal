@@ -71,7 +71,7 @@ namespace MyScriptureJournal.Pages.Scriptures
                     scriptures = scriptures.OrderByDescending(s => s.SaveDate);
                     break;
                 default:
-                    scriptures = scriptures.OrderBy(s => s.Book); // Default sorting
+                    scriptures = scriptures.OrderBy(s => s.Book); 
                     break;
             }
 
